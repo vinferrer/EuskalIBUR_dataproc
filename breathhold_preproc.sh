@@ -71,35 +71,35 @@ echo "*** Func MEICA breathhold BOLD"
 echo "************************************"
 echo "************************************"
 
-./02.func_preproc/05.func_meica.sh ${fmat}_bet ${fdir} "${TEs}" bck
+# ./02.func_preproc/05.func_meica.sh ${fmat}_bet ${fdir} "${TEs}" bck
 
 ./02.func_preproc/06.func_optcom.sh ${fmat}_bet ${fdir} "${TEs}"
 	
 
-# As it's breathhold, skip smoothing and denoising!
-for e in $( seq 1 ${nTE} )
-do
-	bold=${flpr}_task-breathhold_echo-${e}_bold
+# # As it's breathhold, skip smoothing and denoising!
+# for e in $( seq 1 ${nTE} )
+# do
+# 	bold=${flpr}_task-breathhold_echo-${e}_bold
 	
-	echo "************************************"
-	echo "*** Func Pepolar breathhold BOLD echo ${e}"
-	echo "************************************"
-	echo "************************************"
+# 	echo "************************************"
+# 	echo "*** Func Pepolar breathhold BOLD echo ${e}"
+# 	echo "************************************"
+# 	echo "************************************"
 
-	./02.func_preproc/02.func_pepolar.sh ${bold}_bet ${fdir} ${sbrf}_topup
+# 	./02.func_preproc/02.func_pepolar.sh ${bold}_bet ${fdir} ${sbrf}_topup
 
-	echo "************************************"
-	echo "*** Func SPC breathhold BOLD echo ${e}"
-	echo "************************************"
-	echo "************************************"
+# 	echo "************************************"
+# 	echo "*** Func SPC breathhold BOLD echo ${e}"
+# 	echo "************************************"
+# 	echo "************************************"
 
-	./02.func_preproc/09.func_spc.sh ${bold}_tpp ${fdir}
+# 	./02.func_preproc/09.func_spc.sh ${bold}_tpp ${fdir}
 
-	# First two outputs
-	immv ${fdir}/${bold}_tpp ${fdir}/00.${bold}_native_preprocessed
-	immv ${fdir}/${bold}_SPC ${fdir}/01.${bold}_native_SPC_preprocessed
+# 	# First two outputs
+# 	immv ${fdir}/${bold}_tpp ${fdir}/00.${bold}_native_preprocessed
+# 	immv ${fdir}/${bold}_SPC ${fdir}/01.${bold}_native_SPC_preprocessed
 
-done
+# done
 
 bold=${flpr}_task-breathhold_optcom_bold
 
